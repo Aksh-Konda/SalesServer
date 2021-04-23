@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const footwearSchema = new Schema({
     pid: {
         type: Number,
+        required: true
     },
     brand: {
         type: String,

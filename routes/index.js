@@ -42,12 +42,8 @@ router.get('/edit/:pid', function (req, res, next) {
 router.get('/delete/:pid', function (req, res, next) {
   Footwear.deleteOne({ pid: req.params.pid })
     .then(resp => {
-      return Footwear.find({});
-    })
-    .then((fw) => {
       res.render('layout', {
-        fw: fw,
-        state: 'sales'
+        state: 'deleted'
       });
     });
 });

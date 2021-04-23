@@ -61,7 +61,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link <%= state === "edit" ? "active" : "" %>">
+                        <a href="#" onclick="return false;" class="nav-link disabled <%= state === "edit" ? "active" : "" %>">
                             <i class="nav-icon far fa-circle text-info"></i>
                             <p class="text">Update Sales</p>
                         </a>
@@ -98,6 +98,11 @@
                 <% if(state == "added") { %>
                     <div class="alert alert-success" role="alert">
                         Added Record Successfully! goto <a href="/">home</a> to check it out.
+                    </div>
+                <% } %>
+                <% if(state == "deleted") { %>
+                    <div class="alert alert-success" role="alert">
+                        Deleted Record Successfully! goto <a href="/">home</a> to check it out.
                     </div>
                 <% } %>
             </section>
