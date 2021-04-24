@@ -10,7 +10,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -49,19 +49,19 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
                     <li class="nav-item">
-                        <a href="/" class="nav-link <%= state === "sales" ? "active" : "" %>">
+                        <a href="/" class="nav-link <%= currentRoute === "sales" ? "active" : "" %>">
                             <i class="nav-icon far fa-circle text-info"></i>
                             <p class="text">Sales Details</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/add" class="nav-link <%= state === "add" ? "active" : "" %> ">
+                        <a href="/add" class="nav-link <%= currentRoute === "add" ? "active" : "" %> ">
                             <i class="nav-icon far fa-circle text-info"></i>
                             <p>Add Product</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" onclick="return false;" class="nav-link disabled <%= state === "edit" ? "active" : "" %>">
+                        <a href="#" onclick="return false;" class="nav-link disabled <%= currentRoute === "edit" ? "active" : "" %>">
                             <i class="nav-icon far fa-circle text-info"></i>
                             <p class="text">Update Sales</p>
                         </a>
@@ -81,37 +81,13 @@
             </section>
 
             <section class="content">
-                <% if(state == "sales") { %>
-                    <%- include('./table', { fw }) %>
-                <% } %>
-                <% if(state == "edit" ) { %>
-                    <%- include('./addOrEditFootwear', { fw, state }) %>
-                <% } %>
-                <% if(state == "add") { %>
-                    <%- include('./addOrEditFootwear', { state }) %>
-                <% } %>
-                <% if(state == "updated") { %>
-                    <div class="alert alert-success" role="alert">
-                        Updated Record Successfully! goto <a href="/">home</a> to check it out.
-                    </div>
-                <% } %>
-                <% if(state == "added") { %>
-                    <div class="alert alert-success" role="alert">
-                        Added Record Successfully! goto <a href="/">home</a> to check it out.
-                    </div>
-                <% } %>
-                <% if(state == "deleted") { %>
-                    <div class="alert alert-success" role="alert">
-                        Deleted Record Successfully! goto <a href="/">home</a> to check it out.
-                    </div>
-                <% } %>
+                <%- include(mainContent.location, mainContent.data) %>
             </section>
         </div>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="/dist/js/adminlte.min.js"></script>
 </body>
 
 </html>
