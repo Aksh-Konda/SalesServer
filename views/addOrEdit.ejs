@@ -21,7 +21,8 @@
             <div class="form-group row">
                 <label for="pid" class="col-sm-2 col-form-label">Product Id</label>
                 <div class="col-sm-10">
-                    <% if(op == "edit") { %> 
+                    <% if(op == "edit") { %>
+                    <input type="text" name="_id" value="<%= fw._id %>" hidden>
                     <input type="number" readonly class="form-control-plaintext" name="pid" id="pid" value="<%=fw.pid%>">
                     <% } %>
                     <% if(op == "add") { %> 

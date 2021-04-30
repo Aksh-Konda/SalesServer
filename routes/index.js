@@ -36,8 +36,8 @@ router.get('/add', function (req, res, next) {
   res.render('layout', data);
 });
 
-router.get('/edit/:pid', function (req, res, next) {
-  Footwear.findOne({ pid: req.params.pid })
+router.get('/edit/:id', function (req, res, next) {
+  Footwear.findById(req.params.id)
     .then((fw) => {
       const data = {
         mainContent: {
@@ -53,8 +53,8 @@ router.get('/edit/:pid', function (req, res, next) {
     });
 });
 
-router.get('/delete/:pid', function (req, res, next) {
-  Footwear.deleteOne({ pid: req.params.pid })
+router.get('/delete/:id', function (req, res, next) {
+  Footwear.findByIdAndDelete(req.params.id)
     .then(resp => {
       res.redirect('/');
     });
@@ -69,7 +69,12 @@ router.post('/sales/add', function (req, res, next) {
 });
 
 router.post('/sales/edit', function (req, res, next) {
-  Footwear.updateOne({ pid: req.body.pid }, { $set: req.body })
+  const updated = {
+    quantity: req.body.quantity,
+    cost_price: req.body.cost_price,
+    selling_price: req.body.selling_price,
+  };
+  Footwear.findByIdAndUpdate(req.body._id, { $set: updated })
     .then(resp => {
       res.redirect('/');
     });
