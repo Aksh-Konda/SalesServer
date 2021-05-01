@@ -59,10 +59,10 @@
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
                     <% if(op == "edit") { %> 
-                    <input type="text" readonly class="form-control-plaintext" name="name" id="name" value="<%=fw.name%>" autocomplete="off">
+                    <input type="text" readonly class="form-control-plaintext" name="name" id="name" value="<%=fw.name%>">
                     <% } %>
                     <% if(op == "add") { %> 
-                    <input type="text" class="form-control" name="name" id="name">
+                    <input type="text" class="form-control" name="name" id="name" autocomplete="off">
                     <% } %>
                 </div>
             </div>
